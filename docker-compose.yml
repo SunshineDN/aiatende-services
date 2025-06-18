@@ -40,6 +40,8 @@ services:
       - EVOLUTION_API_BASE_URL=${EVOLUTION_API_BASE_URL} # URL base da API do Evolution API
       - EVOLUTION_API_INSTANCE_ID=${EVOLUTION_API_INSTANCE_ID} # ID da instância da API do Evolution API
       - EVOLUTION_API_KEY=${EVOLUTION_API_KEY} # Chave de API do Evolution API
+      - VAPI_API_KEY=${VAPI_API_KEY} # Chave de API do VAPI
+      - VAPI_PHONE_ID=${VAPI_PHONE_ID} # ID do telefone do VAPI
     ports:
       - "3000:3000" # Altere a primeira porta para a que deseja expor
     networks:
