@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS} # Altere a senha do banco de dados
       POSTGRES_DB: ${DB_NAME} # Altere o nome do banco de dados
     ports:
-      - "4000:5432" # Altere a primeira porta que deseja expor
+      - "${HOST_PORT_DB:-4000}:5432" # Altere a primeira porta que deseja expor
     volumes:
       - ./data:/var/lib/postgresql/data
     healthcheck:
@@ -43,7 +43,7 @@ services:
       - VAPI_API_KEY=${VAPI_API_KEY} # Chave de API do VAPI
       - VAPI_PHONE_ID=${VAPI_PHONE_ID} # ID do telefone do VAPI
     ports:
-      - "3000:3000" # Altere a primeira porta para a que deseja expor
+      - "${HOST_PORT_IA:-3000}:3000"
     networks:
       - aiatende-network
 
@@ -66,7 +66,7 @@ services:
       - GA4_API_SECRET=${GA4_API_SECRET} # Segredo da API do GA4
       - WHATSAPP_NUMBER=${WHATSAPP_NUMBER} # Número do WhatsApp
     ports:
-      - "2000:3000" # Altere a primeira porta para a que deseja expor
+      - "${HOST_PORT_CONVERSIONS:-2000}:2000"
     networks:
       - aiatende-network
 
